@@ -1,0 +1,79 @@
+$navWidth: 21.875rem;
+$navHeight: 2rem;
+$hamburgerSize: 2.5rem;
+$color: #fff;
+$color__patty: #151824;
+$color__secondary: #575b67;
+
+.menu_bottom_main {
+  left: .4rem;
+  bottom: .7rem;
+  transition: all .8s cubic-bezier(0.86, 0, 0.07, 1);
+  z-index: 1000;
+
+  button {
+    background-color: $color;
+    width: 36px;
+    height: 36px;
+    border-radius: 5px;
+    box-shadow: 0 6px 16px 0 rgb(4 12 12 / 4%) !important;
+
+    &.show_btn {
+      svg {
+        transition: all 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+      }
+
+      &.active {
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+  }
+
+  .list {
+    pointer-events: none;
+
+    button {
+      position: absolute;
+      left: 0;
+      transition: all 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+      opacity: 0;
+      z-index: -1;
+
+      @for $i from 1 through 4 {
+        &:nth-child(#{$i}) {
+          transition-delay: $i * 0.05s;
+        }
+      }
+    }
+
+    &.active {
+      pointer-events: visible;
+
+      button {
+        opacity: 1;
+
+        @for $i from 1 through 4 {
+          &:nth-child(#{$i}) {
+            left: $i * 40px;
+          }
+        }
+
+        svg {
+          fill: $color__patty;
+          transition: all 0.5s cubic-bezier(0.86, 0, 0.07, 1);
+        }
+
+        &.active {
+          background-color: #04568d;
+
+          svg {
+            fill: #f1f1f1;
+          }
+        }
+      }
+    }
+  }
+}

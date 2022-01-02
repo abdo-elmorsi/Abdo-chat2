@@ -1,0 +1,92 @@
+.dark {
+    // Variables
+    @import "../variables/dark";
+
+    // Utilities
+    @import "./helper/utilities";
+
+    // Reboot
+    @import "./reboot/reboot";
+
+    // Components
+    @import "./components/accordion/custom-accordion";
+    @import "./components/button/border-button";
+    @import "./components/close/close";
+    @import "./components/menu-style/default-sidebar";
+    @import "./components/menu-style/dual-horizontal";
+    @import "./components/menu-style/dual-compact";
+    @import "./components/menu-style/nav-color";
+    @import "./components/footer/footer";
+    @import "./components/nav/navbar";
+    @import "./components/alert/bs-alert";
+    @import "./components/card/card";
+    @import "./components/chart/chart";
+    @import "./components/card/icon-box";
+    @import "./components/form/form-control";
+    @import "./components/table/table";
+    @import "./components/dropdown/dropdown";
+    @import "./components/profile/profile";
+    @import "./components/timeline/timeline-mega";
+    @import "./components/widgets/credit-card";
+    @import "./components/progressbar/progressbar";
+    @import "./components/pagination/pagination";
+
+    // Pages
+    @import "./pages/kanban/kanban";
+    @import "./pages/pricing/pricing";
+    @import "./pages/auth/authentication";
+
+    // Plugins
+    @import "./plugings/chart";
+    @import "./plugings/full-calendar";
+
+    // Layouts
+    @import "./layout-style/boxed";
+    .apexcharts-pie-label, .apexcharts-datalabels, .apexcharts-datalabel, .apexcharts-datalabel-label, .apexcharts-datalabel-value{
+        fill: #bfc9e3 !important;
+    }
+    .apexcharts-legend-text {
+        color: #bfc9e3 !important;
+    }
+    .apexcharts-yaxis{
+        text{
+            fill: #bfc9e3;
+        }
+    }
+    .cls-logo-1{fill:url(#linear-gradient);}
+    .cls-logo-2{fill:#fff;}
+    .rst__lineHalfHorizontalRight::before, .rst__lineFullVertical::after, .rst__lineHalfVerticalTop::after, .rst__lineHalfVerticalBottom::after{
+        background-color: white;
+    }
+
+
+    .leaflet-control-container {
+        .leaflet-routing-icon {
+            margin-right: 5px;
+            background-color: wheat;
+        }
+        .leaflet-routing-alt tr:hover {
+            background-color: #394158;
+        }
+        .leaflet-routing-alternatives-container {
+            background-color: rgb(21 24 36 / 90%);;
+            box-shadow: 0 10px 30px 0 rgb(4 12 12 / 5%) !important;
+            .btn_min {
+                background-color: rgb(21 24 36 / 90%);
+                svg{
+                    fill: #f1f1f1;
+                }
+            }
+        }
+
+    }
+
+    .tree_root {
+        .rc-tree .rc-tree-treenode{
+            .rc-tree-title{
+                color: #f1f1f1;
+            }
+        }
+    }
+
+}

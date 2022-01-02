@@ -1,0 +1,223 @@
+$navWidth: 21.875rem;
+$hamburgerSize: 2.5rem;
+$color: #fff;
+$color__patty: #151824;
+$color__secondary: #575b67;
+
+
+.config {
+  width: 100%;
+  height: calc(100% - 2rem);
+  background: $color;
+  position: absolute;
+  top: 0;
+  right: 100%;
+  z-index: 1001;
+  transition: all .8s cubic-bezier(0.86, 0, 0.07, 1);
+
+  &.active {
+    right: 0;
+  }
+  .title{
+    font-size: .9rem;
+    position: absolute;
+    left: 50%;
+    top: .3rem;
+    transform: translateX(-50%);
+  }
+}
+
+.nav {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  top: 0;
+  right: 0;
+  margin: 1rem;
+  padding: 1rem;
+  width: $navWidth;
+  height: calc(100% - 2rem);
+  background: $color;
+  transition: all .8s cubic-bezier(0.86, 0, 0.07, 1);
+  z-index: 1000;
+  // clip-path: circle(1.1875rem at calc(#{$navWidth} - #{$hamburgerSize / 2}) #{$hamburgerSize / 2});
+
+  // &.active {
+  //   clip-path: circle(81% at #{$navWidth / 2} 50vh);
+  // }
+
+
+  &__item {
+    transition: all 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+    opacity: 0;
+    transform: translateY(50%);
+
+
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}) {
+        transition-delay: $i * 0.05s;
+      }
+    }
+
+    .section__one {
+      label {
+        padding: .5rem .2rem;
+        border: 0.0625rem solid #eee;
+        background-color: transparent;
+
+        &:hover {
+          background-color: $color__secondary;
+        }
+
+        span {
+
+          font-size: .8rem;
+
+          &:first-child {
+            padding: 0 .5rem;
+            color: #ddd;
+          }
+
+          &:last-child {
+            font-weight: 500;
+            border-left: 0.0625rem solid #ddd;
+            padding: 0 .4rem;
+          }
+        }
+
+      }
+    }
+
+    &.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+}
+
+.hamburger {
+  $p: &;
+  width: $hamburgerSize;
+  height: $hamburgerSize;
+  cursor: pointer;
+  position: absolute;
+  z-index: 1001;
+  top: 1.5rem;
+  right: 1rem;
+  transition: all .8s cubic-bezier(0.86, 0, 0.07, 1);
+  box-shadow: 0 0.625rem 1.875rem 0 rgb(4 12 12 / 5%);
+
+  &__patty {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 0.125rem;
+    width: 40%;
+    background: $color__patty;
+    transition: all .8s cubic-bezier(0.86, 0, 0.07, 1);
+
+    &:nth-child(1) {
+      transform: translate(-50%, calc(-50% - 0.3125rem));
+    }
+
+    &:last-child {
+      transform: translate(-50%, calc(-50% + 0.3125rem));
+    }
+  }
+
+  &.active {
+    box-shadow: none !important;
+    background-color: #fff;
+
+    #{$p}__patty {
+      background: $color__patty;
+
+      &:nth-child(1) {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      &:nth-child(3) {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+    }
+  }
+}
+
+.config_btn, .config_btn_close {
+  position: absolute;
+  z-index: 1001;
+  top: .5rem;
+  left: .5rem;
+  font-size: 1rem;
+  border: 0;
+  background: transparent;
+}
+
+
+.dark {
+  .nav {
+    background: $color__patty;
+
+    &__item {
+
+      .section__one {
+        button {
+          border: 0.0625rem solid #656566;
+          transition: all .8s cubic-bezier(0.86, 0, 0.07, 1);
+
+          &:hover {
+            background-color: #656566;
+          }
+
+          span {
+            transition: all .8s cubic-bezier(0.86, 0, 0.07, 1);
+
+            &:first-child {
+              color: lighten($color__secondary, 40);
+            }
+
+            &:last-child {
+              border-left: 0.0625rem solid #7d7d80;
+              color: white;
+            }
+          }
+
+        }
+
+      }
+    }
+
+    .config_btn, .config_btn_close {
+      color: white;
+    }
+  }
+
+  .config {
+    background-color: $color__patty;
+
+
+  }
+
+  .hamburger {
+    $p: &;
+    background: $color__patty;
+
+    &__patty {
+      background: $color !important;
+    }
+
+    &.active {
+      background-color: $color__patty;
+
+      #{$p}__patty {
+        background: $color;
+      }
+    }
+  }
+}

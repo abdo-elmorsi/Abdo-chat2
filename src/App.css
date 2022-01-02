@@ -1,38 +1,43 @@
-.App {
-  text-align: center;
+#navbarDropdown:focus {
+    box-shadow: none;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.btn-primary {
+    background-color: #023f67 !important;
+    border-color: #023f67 !important;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.dropdown-item.active,
+.dropdown-item:active {
+    background-color: #023f67 !important;
+    border-color: #023f67 !important;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.form-check-input:checked {
+    background-color: #023f67 !important;
+    border-color: #023f67 !important;
 }
-
-.App-link {
-  color: #61dafb;
+*::selection {
+    background-color: #222738;
+    color: #fff;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.dark input:focus {
+    background-color: #222738 !important;
+    color: #fff !important;
+    border-color: #222738 !important;
+}
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-track {
+    background-color: white;
+    box-sizing: border-box;
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(-100deg, #222738, #84898f);
+}
+.dark .apexcharts-menu-open {
+    background-color: #222738 !important;
+}
+.dark .apexcharts-menu-open .apexcharts-menu-item:hover {
+    background-color: #222738 !important;
+    color: #fff;
 }

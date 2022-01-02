@@ -1,0 +1,10 @@
+.navs-pill-all {
+    .navbar-nav{
+        .nav-item {
+            &:not(.static-item) {
+                padding-right: calc(#{$spacer} - .25rem);
+                padding-left: unset;
+            }
+        }
+    }
+}

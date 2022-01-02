@@ -1,0 +1,197 @@
+@import "./scss/custom/helper/fonts";
+
+// // Configuration
+@import "./scss/bootstrap/functions";
+// // Variables
+@import "./scss/custom/variable";
+@import "./scss/custom/variables/index";
+@import "./scss/bootstrap/variables";
+
+@import "./scss/bootstrap/mixins";
+@import "./scss/bootstrap/utilities";
+
+// // Custom Mixin And Helper
+@import "./scss/custom/helper/mixins";
+// @import "./scss/custom/helper/reboot";
+
+// // Layout & components
+@import "./scss/bootstrap/root";
+@import "./scss/bootstrap/reboot";
+@import "./scss/bootstrap/type";
+// @import "./scss/bootstrap/images";
+// @import "./scss/bootstrap/containers";
+// @import "./scss/bootstrap/grid";
+// @import "./scss/bootstrap/tables";
+// @import "./scss/bootstrap/forms";
+@import "./scss/bootstrap/buttons";
+@import "./scss/bootstrap/transitions";
+@import "./scss/bootstrap/dropdown";
+@import "./scss/bootstrap/button-group";
+@import "./scss/bootstrap/nav";
+@import "./scss/bootstrap/navbar";
+@import "./scss/bootstrap/card";
+// @import "./scss/bootstrap/accordion";
+// @import "./scss/bootstrap/breadcrumb";
+// @import "./scss/bootstrap/pagination";
+// @import "./scss/bootstrap/badge";
+// @import "./scss/bootstrap/alert";
+@import "./scss/bootstrap/progress";
+// @import "./scss/bootstrap/list-group";
+// @import "./scss/bootstrap/close";
+// @import "./scss/bootstrap/toasts";
+// @import "./scss/bootstrap/modal";
+// @import "./scss/bootstrap/tooltip";
+// @import "./scss/bootstrap/popover";
+// @import "./scss/bootstrap/carousel";
+@import "./scss/bootstrap/spinners";
+// @import "./scss/bootstrap/offcanvas";
+
+// // Helpers
+@import "./scss/bootstrap/helpers";
+
+// // Utilities
+// @import "./scss/bootstrap/utilities/api";
+
+// // // Extra Components and Utilities and plugins
+@import "./scss/custom/components/components";
+@import "./scss/custom/layout-style/index";
+@import "./scss/custom/helper/utilities";
+// @import "./scss/custom/plugins/plugins";
+
+@import "./scss/custom/rtl/index";
+
+@import "./scss/custom/pages/auth/authentication";
+// @import "./scss/custom/pages/kanban/kanban";
+// @import "./scss/custom/pages/pricing/pricing";
+@import '~react-toastify/scss/main';
+
+@import "./scss/custom/dark/index";
+#nprogress .spinner {
+  display: none !important;
+}
+.cls-logo-1 {
+    fill: url(#linear-gradient);
+}
+
+.cls-logo-2 {
+    fill: #272727;
+}
+// remove input type number arrows
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
+}
+.tree_root {
+    .rc-tree .rc-tree-treenode {
+        &.filter-node > {
+            .rc-tree-node-content-wrapper {
+                .rc-tree-title {
+                    color: #de1919;
+                }
+            }
+        }
+        .rc-tree-node-content-wrapper {
+            .rc-tree-title {
+                color: #232d42;
+            }
+            line-height: 20px;
+        }
+    }
+    .rc-tree-icon__customize {
+        position: relative;
+    }
+}
+
+.leaflet-control-container {
+    .leaflet-routing-container {
+        background-color: transparent;
+    }
+
+    .leaflet-control-layers,
+    .leaflet-bar {
+        border: none !important;
+        box-shadow: 0 6px 16px 0 rgb(4 12 12 / 4%) !important;
+    }
+
+    .leaflet-routing-alternatives-container {
+        background-color: rgb(255 255 255 / 90%);
+        position: relative;
+        padding: 1em;
+        border-radius: 10px;
+        //overflow-y: hidden;
+        box-shadow: 0 10px 30px 0 rgb(4 12 12 / 5%) !important;
+
+        .btn_min {
+            border: none;
+            background-color: rgb(255 255 255 / 90%);
+            border-radius: 10px 10px 0 0;
+            padding: 0.7em;
+            position: absolute;
+            right: 10px;
+            bottom: 100%;
+            svg {
+                fill: #171717;
+            }
+        }
+        &.minimize {
+            .leaflet-routing-alt {
+                max-height: 100px;
+                &.leaflet-routing-alt-minimized {
+                    max-height: 30px;
+                }
+            }
+        }
+    }
+
+    .leaflet-routing-container-hide {
+        width: auto !important;
+        height: auto !important;
+
+        .leaflet-routing-alt {
+            display: block !important;
+        }
+    }
+
+    .leaflet-control-layers-toggle {
+        width: 36px !important;
+        height: 36px !important;
+    }
+}
+
+#menu-scrollbar {
+    overflow-x: hidden;
+    .scrollbar-track {
+        border-radius: 4px;
+        opacity: 1 !important;
+    }
+}
+
+%init {
+    height: 20px;
+    background-position: center center;
+    background-size: cover;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+#development {
+    position: fixed;
+    z-index: 99999;
+    bottom: 30px;
+    right: 30px;
+    color: #272727;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    opacity: 0.7;
+}

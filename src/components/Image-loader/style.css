@@ -1,0 +1,23 @@
+.is-img-loading {
+	opacity: 0;
+	display: none;
+}
+
+.is-img-loaded {
+	animation: fadeIn 0.3s ease;
+	opacity: 1;
+}
+/* .Spiner {
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+} */
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
