@@ -6,11 +6,11 @@ import { toggle } from "../lib/slices/toggleSidebar";
 import { toggleHead } from "../lib/slices/toggle-header";
 import { darkMode } from "../lib/slices/config";
 import Styles from "../styles/WidgetMenu.module.scss";
-import { encryptName } from "../helpers/encryptions";
 
 // Translation
 import i18next from "i18next";
 import Cookies from "js-cookie";
+import {  SinOut } from "../lib/slices/auth";
 
 const languages = [
   {
@@ -31,19 +31,19 @@ const languages = [
 ];
 
 const Header = () => {
-  const location = useHistory();
   const dispatch = useDispatch();
+  
+	const {user} = useSelector(state => state.auth)
+  const config = useSelector((state) => state.config);
+  const { ToggleHeader } = useSelector((state) => state);
   const [showLang, setShowLang] = useState(false);
 
   const currentLanguageCode = Cookies.get("i18next") || "en";
   const currentLanguage = languages.find((l) => l.code === currentLanguageCode);
-  const config = useSelector((state) => state.config);
-  const User = Cookies.get(encryptName("User"));
-  const { ToggleHeader } = useSelector((state) => state);
   const handleSignOut = (e) => {
     e.preventDefault();
-    Cookies.remove(encryptName("User"));
-    location.push("/login");
+    Cookies.remove("User");
+    dispatch(SinOut())
   };
   useEffect(
     (_) => {
@@ -377,14 +377,14 @@ const Header = () => {
                   aria-expanded="false"
                 >
                   <Image
-                    src={`/assets/images/avatars/${JSON.parse(User).gender ? "02.ico" : "01.png"}`}
+                    src={`/assets/images/avatars/${user?.gender ? "02.ico" : "01.png"}`}
                     width={40}
                     alt="User-Profile"
                     className="img-fluid avatar avatar-rounded avatar-rounded"
                   />
                   <div className="caption ms-3 d-none d-md-block">
                     <h6 className="mb-0 caption-title">
-                      {JSON.parse(User).username?.split("").slice(0, 11)}
+                      {user?.username?.split("").slice(0, 11)}
                     </h6>
                   </div>
                 </Dropdown.Toggle>

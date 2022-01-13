@@ -10,12 +10,10 @@ import {
 import { Formik } from "formik";
 import * as yup from "yup";
 import { toast } from "react-toastify";
-import { useHistory } from "react-router-dom";
-// import axios from "axios";
-import { encryptName } from "../../helpers/encryptions";
 import Cookies from "js-cookie";
 import ImageLoader from "../../components/Image-loader";
-import { use } from "i18next";
+import { useDispatch } from "react-redux";
+import { getUser } from "../../lib/slices/auth";
 
 const loginSchema = yup.object({
   username: yup.string().required("Required"),
@@ -33,7 +31,7 @@ const initialValues = {
 };
 
 const Signin = () => {
-  const history = useHistory();
+  const dispatch = useDispatch();
   return (
     <>
       <section className="login-content">
@@ -62,10 +60,10 @@ const Signin = () => {
                       ) => {
                         setSubmitting(true);
                         if (username !== "" && password === "123456") {
-                          Cookies.set(encryptName("User"), JSON.stringify({ username, gender }), { expires: remember_me ? 12 : 1 })
+                          Cookies.set("User", JSON.stringify({ username, gender }), { expires: remember_me ? 12 : 1 })
                           setTimeout(() => {
                             toast.success("Login Success");
-                            history.push("/");
+                            dispatch(getUser({username:username,password:password,gender:gender}))
                           }, 2000);
                         } else {
                           setTimeout(() => {

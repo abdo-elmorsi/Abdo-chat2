@@ -1,15 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit'
 import Cookies from 'js-cookie';
-import { encryptName } from "../../helpers/encryptions";
 
 let initialConfig = {
-    darkMode: Cookies.get(encryptName('config')) && JSON.parse(Cookies.get(encryptName("config"))).darkMode,
+    darkMode: Cookies.get('config') && JSON.parse(Cookies.get("config")).darkMode,
     language: 'en'
 }
 
 const storage = (key, value) => {
     initialConfig[key] = value;
-    Cookies.set(encryptName('config'), JSON.stringify(initialConfig));
+    Cookies.set('config', JSON.stringify(initialConfig));
 }
 
 export const ConfigSlice = createSlice({
@@ -26,16 +25,12 @@ export const ConfigSlice = createSlice({
             state.language = action.payload;
             storage('language', state.language)
         },
-        setConfig: (state, action) => {
-            Object.assign(state, action.payload)
-        },
     },
 })
 
 // Action creators are generated for each case reducer function
 export const {
     darkMode,
-    setConfig,
     changeLanguage } = ConfigSlice.actions
 
 export default ConfigSlice.reducer
