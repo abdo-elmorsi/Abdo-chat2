@@ -1,43 +1,45 @@
+:root {
+    --main-color: #023f67;
+}
 #navbarDropdown:focus {
     box-shadow: none;
 }
 .btn-primary {
-    background-color: #023f67 !important;
-    border-color: #023f67 !important;
+    background-color: var(--main-color) !important;
+    border-color: var(--main-color) !important;
 }
 .dropdown-item.active,
 .dropdown-item:active {
-    background-color: #023f67 !important;
-    border-color: #023f67 !important;
+    background-color: var(--main-color) !important;
+    border-color: var(--main-color) !important;
 }
 .form-check-input:checked {
-    background-color: #023f67 !important;
-    border-color: #023f67 !important;
+    background-color: var(--main-color) !important;
+    border-color: var(--main-color) !important;
 }
 *::selection {
-    background-color: #222738;
+    background-color: var(--main-color);
     color: #fff;
 }
-.dark input:focus {
-    background-color: #222738 !important;
-    color: #fff !important;
-    border-color: #222738 !important;
+
+button[type="button"]:focus {
+    box-shadow: none;
 }
+
 ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
 }
+
 ::-webkit-scrollbar-track {
     background-color: white;
     box-sizing: border-box;
 }
+
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(-100deg, #222738, #84898f);
+    background:  #99acc4;
 }
-.dark .apexcharts-menu-open {
-    background-color: #222738 !important;
-}
-.dark .apexcharts-menu-open .apexcharts-menu-item:hover {
-    background-color: #222738 !important;
-    color: #fff;
+
+img {
+    transition: all .6s ease;
 }

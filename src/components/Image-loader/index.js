@@ -2,7 +2,7 @@ import './style.css'
 import React, { useState } from 'react'
 import { Spinner, Image } from 'react-bootstrap'
 
-const ImageLoader = ({ src, alt, style, className, width, height }) => {
+const ImageLoader = ({ src, alt, style, className, width, height,res }) => {
 	const loadedImages = {};
 	const [loaded, setLoaded] = useState(loadedImages[src]);
 
@@ -28,6 +28,7 @@ const ImageLoader = ({ src, alt, style, className, width, height }) => {
 				width={width}
 				height={height}
 				style={style}
+				{...res}
 			/>
 		</>
 	)

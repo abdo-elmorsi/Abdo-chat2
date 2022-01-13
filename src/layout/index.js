@@ -4,7 +4,7 @@ import React from "react";
 //header
 import Header from "./header";
 //subheader
-import SubHeader from "./sub-header";
+// import SubHeader from "./sub-header";
 //sidebar
 import Sidebar from "./sidebar";
 //footer
@@ -21,9 +21,9 @@ const Layout = ({ children }) => {
       <main className="main-content">
         <div className="position-relative">
           {!location.pathname.includes("login") && <Header />}
-          {!location.pathname.includes("login") && (
+          {/* {!location.pathname.includes("login") && (
             <SubHeader pageName={location.pathname} />
-          )}
+          )} */}
         </div>
         <div
           className={
