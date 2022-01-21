@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Navbar, Container, Nav, Dropdown, Image } from "react-bootstrap";
-import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toggle } from "../lib/slices/toggleSidebar";
 import { toggleHead } from "../lib/slices/toggle-header";
@@ -353,7 +352,7 @@ const Header = () => {
                   aria-expanded="false"
                 >
                   <Image
-                    src={`/assets/images/${user?.UserIcon}.png`}
+                    src={`/assets/images/${user?.profile_picture}.png`}
                     width={40}
                     alt="User-Profile"
                     className="img-fluid avatar avatar-rounded avatar-rounded"

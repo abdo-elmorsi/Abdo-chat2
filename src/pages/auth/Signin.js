@@ -1,3 +1,8 @@
+import { useState } from "react";
+import { getDatabase, ref, set } from "firebase/database";
+import { useDispatch } from "react-redux";
+import { getUser } from "../../lib/slices/auth";
+import Cookies from "js-cookie";
 import {
   Button,
   Card,
@@ -8,16 +13,10 @@ import {
   Spinner,
 } from "react-bootstrap";
 import { toast } from "react-toastify";
-import Cookies from "js-cookie";
 import ImageLoader from "../../components/Image-loader";
-import { useDispatch } from "react-redux";
-import { getUser } from "../../lib/slices/auth";
-import { useState } from "react";
-
-
-
 
 const Signin = () => {
+  const db = getDatabase();
   const [Name, setName] = useState('')
   const [UserIcon, setUserIcon] = useState('icon1');
   const [Remember, setRemember] = useState(true);
@@ -27,10 +26,16 @@ const Signin = () => {
     e.preventDefault();
     setloading(true);
     if (Name.trim() !== "" && Name.trim().length > 5) {
-      Cookies.set("User", JSON.stringify({ Name: Name, UserIcon: UserIcon }), { expires: Remember ? 12 : 1 });
+      const userId = Math.random().toString(16).slice(2);
+
+      set(ref(db, 'users/' + userId), { id: userId, Name: Name, profile_picture: UserIcon });
+      Cookies.set("User", JSON.stringify({ id: userId, Name: Name, profile_picture: UserIcon }), { expires: Remember ? 12 : 1 });
+
       setTimeout(() => {
+        setloading(false);
         toast.success("Login Success");
-        dispatch(getUser({ Name: Name, UserIcon: UserIcon }))
+        dispatch(getUser({ id: userId, Name: Name, profile_picture: UserIcon }));
+        return false;
       }, 2000);
     } else {
       setTimeout(() => {

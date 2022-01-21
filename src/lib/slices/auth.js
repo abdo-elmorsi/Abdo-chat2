@@ -4,7 +4,7 @@ import Cookies from 'js-cookie'
 export const fetchUserSlice = createSlice({
   name: 'auth',
   initialState: {
-    user: JSON.parse(Cookies.get("User")) || null
+    user: (Cookies.get("User") && JSON.parse(Cookies.get("User"))) || null
   },
   reducers: {
     getUser: (state, action) => {
